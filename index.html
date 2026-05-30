@@ -85,6 +85,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             text-align: center;
+            text-decoration: none;
         }
 
         .menu-btn:hover {
@@ -196,85 +197,50 @@
         }
 
         .demo-item {
-            margin-bottom: 2.5rem;
-        }
-
-        .demo-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        @media (max-width: 480px) {
-            .demo-row {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .demo-row .inline-dl-btn,
-            .demo-row .play-action-btn {
-                width: 100%;
-            }
+            margin-bottom: 2rem;
+            background: rgba(202, 155, 247, 0.02);
+            border: 1px solid rgba(202, 155, 247, 0.08);
+            padding: 1.5rem;
+            border-radius: 6px;
         }
 
         .demo-title {
-            display: inline-block;
             color: #ffffff;
             font-size: 1.1rem;
             font-weight: 500;
-            padding-bottom: 2px;
+            margin-bottom: 0.2rem;
         }
 
         .demo-desc {
             font-size: 0.95rem;
             color: #9d8bb5;
-            margin-top: 0.2rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1.2rem;
         }
 
-        .demo-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        @media (max-width: 480px) {
-            .demo-actions {
-                width: 100%;
-                flex-direction: column;
-            }
-        }
-
-        .play-action-btn {
-            padding: 0.4rem 1.2rem;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(202, 155, 247, 0.1);
-            border: 1px solid #ca9bf7;
-            color: #ffffff;
+        /* Container for the Google Drive Iframe Player */
+        .player-container {
+            width: 100%;
+            height: 62px;
             border-radius: 4px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s ease;
+            overflow: hidden;
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 1rem;
         }
 
-        .play-action-btn:hover {
-            background: #ca9bf7;
-            color: #120921;
-        }
-
-        .play-action-btn.playing {
-            background: #ff5e7e;
-            border-color: #ff5e7e;
-            color: #ffffff;
+        .player-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
 
         .inline-dl-btn {
-            padding: 0.4rem 1rem;
+            display: block;
+            width: 100%;
+            padding: 0.5rem 0;
             font-size: 0.75rem;
-            text-decoration: none;
-            display: inline-block;
-            white-space: nowrap;
+            text-align: center;
         }
 
         .contact-block {
@@ -390,33 +356,31 @@
             <ul class="demo-list">
                 
                 <li class="demo-item">
-                    <div class="demo-row">
-                        <div style="flex-grow: 1; width: 100%;">
-                            <div class="demo-title">Character Sample Reel</div>
-                            <div class="demo-desc">Showcasing emotional range, character archetypes, and vocal versatility.</div>
-                        </div>
-                        <div class="demo-actions">
-                            <button class="play-action-btn" onclick="toggleAudio('https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1', this)">Play Demo</button>
-                            <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">
-                                Download WAV
-                            </a>
-                        </div>
+                    <div class="demo-title">Character Sample Reel</div>
+                    <div class="demo-desc">Showcasing emotional range, character archetypes, and vocal versatility.</div>
+                    
+                    <!-- Embedded Google Drive Player (Character Reel) -->
+                    <div class="player-container">
+                        <iframe src="https://drive.google.com/file/d/1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1/preview" allow="autoplay"></iframe>
                     </div>
+                    
+                    <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">
+                        Download WAV
+                    </a>
                 </li>
                 
                 <li class="demo-item">
-                    <div class="demo-row">
-                        <div style="flex-grow: 1; width: 100%;">
-                            <div class="demo-title">Home Studio Sample</div>
-                            <div class="demo-desc">A demonstration of raw audio quality, room acoustics, and technical specs.</div>
-                        </div>
-                        <div class="demo-actions">
-                            <button class="play-action-btn" onclick="toggleAudio('https://drive.google.com/uc?export=download&id=1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT', this)">Play Demo</button>
-                            <a href="https://drive.google.com/uc?export=download&id=1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT" target="_blank" class="menu-btn inline-dl-btn">
-                                Download WAV
-                            </a>
-                        </div>
+                    <div class="demo-title">Home Studio Sample</div>
+                    <div class="demo-desc">A demonstration of raw audio quality, room acoustics, and technical specs.</div>
+                    
+                    <!-- Embedded Google Drive Player (Studio Sample) -->
+                    <div class="player-container">
+                        <iframe src="https://drive.google.com/file/d/1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT/preview" allow="autoplay"></iframe>
                     </div>
+                    
+                    <a href="https://drive.google.com/uc?export=download&id=1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT" target="_blank" class="menu-btn inline-dl-btn">
+                        Download WAV
+                    </a>
                 </li>
 
             </ul>
@@ -443,59 +407,6 @@
     </div>
 
     <script>
-        // Global Single-Instance Audio Manager
-        let currentAudio = null;
-        let currentButton = null;
-
-        function toggleAudio(audioUrl, buttonElement) {
-            // Case 1: Clicking the button of the track that is ALREADY playing
-            if (currentAudio && currentButton === buttonElement) {
-                if (!currentAudio.paused) {
-                    currentAudio.pause();
-                    buttonElement.textContent = "Play Demo";
-                    buttonElement.classList.remove('playing');
-                } else {
-                    currentAudio.play();
-                    buttonElement.textContent = "Pause";
-                    buttonElement.classList.add('playing');
-                }
-                return;
-            }
-
-            // Case 2: A track is playing, but we clicked a COMPLETELY DIFFERENT track
-            if (currentAudio) {
-                currentAudio.pause();
-                if (currentButton) {
-                    currentButton.textContent = "Play Demo";
-                    currentButton.classList.remove('playing');
-                }
-            }
-
-            // Instantiate and configure new track
-            currentAudio = new Audio(audioUrl);
-            currentButton = buttonElement;
-
-            buttonElement.textContent = "Loading...";
-
-            currentAudio.play()
-                .then(() => {
-                    buttonElement.textContent = "Pause";
-                    buttonElement.classList.add('playing');
-                })
-                .catch(error => {
-                    console.error("Audio playback failed:", error);
-                    buttonElement.textContent = "Play Demo";
-                });
-
-            // Handle track ending gracefully
-            currentAudio.onended = function() {
-                buttonElement.textContent = "Play Demo";
-                buttonElement.classList.remove('playing');
-                currentAudio = null;
-                currentButton = null;
-            };
-        }
-
         function showPage(sectionId) {
             document.getElementById('landing-view').style.display = 'none';
             const sections = document.querySelectorAll('.page-section');
@@ -510,16 +421,13 @@
         }
 
         function showHome() {
-            // Safety measure: Stop playback if user navigates back to landing screen
-            if (currentAudio) {
-                currentAudio.pause();
-                if (currentButton) {
-                    currentButton.textContent = "Play Demo";
-                    currentButton.classList.remove('playing');
-                }
-                currentAudio = null;
-                currentButton = null;
-            }
+            // To pause iframe audio on navigation back to home, we reload the iframe sources
+            const containers = document.querySelectorAll('.player-container iframe');
+            containers.forEach(iframe => {
+                const currentSrc = iframe.src;
+                iframe.src = '';
+                iframe.src = currentSrc;
+            });
 
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => {
