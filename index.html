@@ -211,31 +211,62 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .demo-row .inline-dl-btn {
+            .demo-row .inline-dl-btn,
+            .demo-row .play-action-btn {
                 width: 100%;
             }
         }
 
-        .demo-link {
+        .demo-title {
             display: inline-block;
             color: #ffffff;
-            text-decoration: none;
             font-size: 1.1rem;
             font-weight: 500;
-            border-bottom: 1px dashed #4a3765;
             padding-bottom: 2px;
-            transition: all 0.2s ease;
-        }
-
-        .demo-link:hover {
-            color: #ca9bf7; 
-            border-bottom-color: #ca9bf7;
         }
 
         .demo-desc {
             font-size: 0.95rem;
             color: #9d8bb5;
             margin-top: 0.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .demo-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .demo-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+        }
+
+        .play-action-btn {
+            padding: 0.4rem 1.2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(202, 155, 247, 0.1);
+            border: 1px solid #ca9bf7;
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .play-action-btn:hover {
+            background: #ca9bf7;
+            color: #120921;
+        }
+
+        .play-action-btn.playing {
+            background: #ff5e7e;
+            border-color: #ff5e7e;
+            color: #ffffff;
         }
 
         .inline-dl-btn {
@@ -360,29 +391,31 @@
                 
                 <li class="demo-item">
                     <div class="demo-row">
-                        <div>
-                            <a href="https://drive.google.com/file/d/1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="demo-link">
-                                Character Sample Reel ↗
-                            </a>
+                        <div style="flex-grow: 1; width: 100%;">
+                            <div class="demo-title">Character Sample Reel</div>
                             <div class="demo-desc">Showcasing emotional range, character archetypes, and vocal versatility.</div>
                         </div>
-                        <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">
-                            Download WAV
-                        </a>
+                        <div class="demo-actions">
+                            <button class="play-action-btn" onclick="toggleAudio('https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1', this)">Play Demo</button>
+                            <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">
+                                Download WAV
+                            </a>
+                        </div>
                     </div>
                 </li>
                 
                 <li class="demo-item">
                     <div class="demo-row">
-                        <div>
-                            <a href="https://drive.google.com/file/d/1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="demo-link">
-                                Home Studio Sample ↗
-                            </a>
+                        <div style="flex-grow: 1; width: 100%;">
+                            <div class="demo-title">Home Studio Sample</div>
                             <div class="demo-desc">A demonstration of raw audio quality, room acoustics, and technical specs.</div>
                         </div>
-                        <a href="https://drive.google.com/uc?export=download&id=1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT" target="_blank" class="menu-btn inline-dl-btn">
-                            Download WAV
-                        </a>
+                        <div class="demo-actions">
+                            <button class="play-action-btn" onclick="toggleAudio('https://drive.google.com/uc?export=download&id=1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT', this)">Play Demo</button>
+                            <a href="https://drive.google.com/uc?export=download&id=1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT" target="_blank" class="menu-btn inline-dl-btn">
+                                Download WAV
+                            </a>
+                        </div>
                     </div>
                 </li>
 
@@ -410,6 +443,59 @@
     </div>
 
     <script>
+        // Global Single-Instance Audio Manager
+        let currentAudio = null;
+        let currentButton = null;
+
+        function toggleAudio(audioUrl, buttonElement) {
+            // Case 1: Clicking the button of the track that is ALREADY playing
+            if (currentAudio && currentButton === buttonElement) {
+                if (!currentAudio.paused) {
+                    currentAudio.pause();
+                    buttonElement.textContent = "Play Demo";
+                    buttonElement.classList.remove('playing');
+                } else {
+                    currentAudio.play();
+                    buttonElement.textContent = "Pause";
+                    buttonElement.classList.add('playing');
+                }
+                return;
+            }
+
+            // Case 2: A track is playing, but we clicked a COMPLETELY DIFFERENT track
+            if (currentAudio) {
+                currentAudio.pause();
+                if (currentButton) {
+                    currentButton.textContent = "Play Demo";
+                    currentButton.classList.remove('playing');
+                }
+            }
+
+            // Instantiate and configure new track
+            currentAudio = new Audio(audioUrl);
+            currentButton = buttonElement;
+
+            buttonElement.textContent = "Loading...";
+
+            currentAudio.play()
+                .then(() => {
+                    buttonElement.textContent = "Pause";
+                    buttonElement.classList.add('playing');
+                })
+                .catch(error => {
+                    console.error("Audio playback failed:", error);
+                    buttonElement.textContent = "Play Demo";
+                });
+
+            // Handle track ending gracefully
+            currentAudio.onended = function() {
+                buttonElement.textContent = "Play Demo";
+                buttonElement.classList.remove('playing');
+                currentAudio = null;
+                currentButton = null;
+            };
+        }
+
         function showPage(sectionId) {
             document.getElementById('landing-view').style.display = 'none';
             const sections = document.querySelectorAll('.page-section');
@@ -424,6 +510,17 @@
         }
 
         function showHome() {
+            // Safety measure: Stop playback if user navigates back to landing screen
+            if (currentAudio) {
+                currentAudio.pause();
+                if (currentButton) {
+                    currentButton.textContent = "Play Demo";
+                    currentButton.classList.remove('playing');
+                }
+                currentAudio = null;
+                currentButton = null;
+            }
+
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(section => {
                 section.classList.remove('active');
