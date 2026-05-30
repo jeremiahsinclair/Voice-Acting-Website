@@ -243,25 +243,44 @@
             text-align: center;
         }
 
-        .contact-block {
+        /* --- STYLIZED CONTACT AREA --- */
+        .contact-card {
+            background: rgba(202, 155, 247, 0.03);
+            border: 1px solid rgba(202, 155, 247, 0.12);
+            border-radius: 6px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            color: #d1c7e0;
             margin-bottom: 1.5rem;
         }
 
-        .contact-title {
-            color: #ffffff;
-            font-weight: 500;
-            margin-bottom: 0.2rem;
-        }
-
-        .contact-email {
-            color: #ca9bf7;
+        .contact-cta-btn {
+            display: block;
+            width: 100%;
+            background: #ca9bf7;
+            color: #06040a;
+            padding: 1.1rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
             text-decoration: none;
-            font-size: 1.05rem;
-            transition: color 0.2s;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(202, 155, 247, 0.15);
         }
 
-        .contact-email:hover {
-            color: #ffffff;
+        .contact-cta-btn:hover {
+            background: #ffffff;
+            color: #06040a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(202, 155, 247, 0.25);
         }
 
         .back-btn {
@@ -398,10 +417,15 @@
 
         <section id="contact" class="page-section">
             <h2>Contact</h2>
-            <div class="contact-block">
-                <div class="contact-title">Direct Inquiries & Bookings</div>
-                <a href="mailto:jsinclairvo@gmail.com" class="contact-email">jsinclairvo@gmail.com</a>
+            
+            <!-- Reliable, Native Call-To-Action Card -->
+            <div class="contact-card">
+                <p>Have a project, audition, or booking inquiry? Let's connect directly via email.</p>
+                <a href="mailto:jsinclairvo@gmail.com?subject=Voice%20Acting%20Inquiry" class="contact-cta-btn">
+                    Open Email Client
+                </a>
             </div>
+
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
