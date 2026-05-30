@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeremiah Sinclair | Voice Actor</title>
     <style>
-        /* Minimalist Typography & Reset */
+        /* Minimalist Reset */
         * {
             margin: 0;
             padding: 0;
@@ -14,64 +14,143 @@
         }
 
         body {
-            /* Rich gradient blending from deep dark violet into pure black */
             background: linear-gradient(135deg, #120921 0%, #06040a 100%);
-            background-attachment: fixed; /* Keeps the gradient locked beautifully in place as you scroll */
-            color: #e2daf0; /* Soft tint white for text readability */
+            background-attachment: fixed;
+            color: #e2daf0;
             line-height: 1.7;
-            padding: 0 1.5rem; /* Slightly reduced for better mobile breathing room */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1.5rem;
         }
 
         .container {
-            max-width: 680px; /* Slim, elegant reading width mimicking aleksle.com */
+            width: 100%;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 4rem 0; /* Slightly tighter top/bottom padding for mobile comfort */
+            text-align: center;
         }
 
-        /* Clean Header */
-        header {
-            margin-bottom: 4rem;
+        /* --- LANDING VIEW --- */
+        #landing-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
-        h1 {
-            font-size: 2.2rem;
+        h1.main-title {
+            font-size: 2.4rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
         }
 
-        /* Flexbox Navigation for perfect Mobile + Desktop scaling */
-        nav, .social-links {
+        .subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #ca9bf7;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            width: 100%;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 360px) {
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .menu-btn {
+            background: transparent;
+            border: 1px solid rgba(202, 155, 247, 0.3);
+            color: #ffffff;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .menu-btn:hover {
+            border-color: #ca9bf7;
+            background-color: rgba(202, 155, 247, 0.05);
+            color: #ca9bf7;
+            transform: translateY(-2px);
+        }
+
+        .social-area {
+            margin-bottom: 2.5rem;
             display: flex;
-            flex-wrap: wrap; /* Allows links to wrap cleanly on small phones instead of breaking */
-            gap: 1rem 1.5rem; /* Automatically handles spacing horizontally and vertically */
-            margin: 1.5rem 0;
+            justify-content: center;
+            align-items: center;
         }
 
-        nav a, .social-links a {
-            color: #9d8bb5; /* Muted slate purple */
+        .social-icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #9d8bb5;
+            transition: color 0.2s ease, transform 0.2s ease;
             text-decoration: none;
+        }
+
+        .social-icon-link:hover {
+            color: #ca9bf7;
+            transform: scale(1.1);
+        }
+
+        .social-icon-link svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .tagline {
             font-size: 0.95rem;
-            transition: color 0.2s ease;
+            color: #9d8bb5;
+            letter-spacing: 0.5px;
         }
 
-        nav a:hover, .social-links a:hover {
-            color: #ca9bf7; /* Vibrant neon purple on hover */
+        /* --- PAGE CONTENT VIEW --- */
+        .page-section {
+            display: none;
+            opacity: 0;
+            text-align: left;
+            width: 100%;
+            transition: opacity 0.3s ease-in-out;
+            padding: 1rem 0;
         }
 
-        /* Sections */
-        section {
-            margin-bottom: 5rem;
+        .page-section.active {
+            display: block;
+            opacity: 1;
         }
 
         h2 {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #ca9bf7; /* Purple accents for headings */
+            color: #ca9bf7;
             margin-bottom: 1.5rem;
             font-weight: 600;
+            border-bottom: 1px solid #2d1f42;
+            padding-bottom: 0.5rem;
         }
 
         p {
@@ -80,7 +159,6 @@
             font-size: 1.05rem;
         }
 
-        /* Work & Training List Styling */
         .list-block {
             display: flex;
             flex-direction: column;
@@ -97,7 +175,6 @@
             font-weight: 500;
         }
 
-        /* Clickable Credit Links */
         .credit-link {
             color: #ffffff;
             text-decoration: none;
@@ -114,13 +191,29 @@
             color: #9d8bb5;
         }
 
-        /* Demo Links Styling */
         .demo-list {
             list-style: none;
         }
 
         .demo-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .demo-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .demo-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .demo-row .inline-dl-btn {
+                width: 100%;
+            }
         }
 
         .demo-link {
@@ -145,7 +238,14 @@
             margin-top: 0.2rem;
         }
 
-        /* Contact Section */
+        .inline-dl-btn {
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            text-decoration: none;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
         .contact-block {
             margin-bottom: 1.5rem;
         }
@@ -167,10 +267,20 @@
             color: #ffffff;
         }
 
-        footer {
-            margin-top: 8rem;
-            border-top: 1px solid #2d1f42;
-            padding-top: 2rem;
+        .back-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            color: #9d8bb5;
+            text-decoration: none;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-btn:hover {
+            color: #ca9bf7;
         }
     </style>
 </head>
@@ -178,30 +288,37 @@
 
     <div class="container">
 
-        <header>
-            <h1>Jeremiah Sinclair</h1>
+        <div id="landing-view">
+            <h1 class="main-title">Jeremiah Sinclair</h1>
+            <div class="subtitle">Voice Actor</div>
             
-            <nav>
-                <a href="#about">About</a>
-                <a href="#work">Work</a>
-                <a href="#training">Training</a>
-                <a href="#demos">Demos</a>
-                <a href="#studio">Studio</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
-            <div class="social-links">
-                <a href="https://x.com/jsinclairvo" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+            <div class="button-grid">
+                <button class="menu-btn" onclick="showPage('about')">About</button>
+                <button class="menu-btn" onclick="showPage('work')">Work</button>
+                <button class="menu-btn" onclick="showPage('training')">Training</button>
+                <button class="menu-btn" onclick="showPage('demos')">Demos</button>
+                <button class="menu-btn" onclick="showPage('studio')">Studio</button>
+                <button class="menu-btn" onclick="showPage('contact')">Contact</button>
             </div>
-        </header>
 
-        <section id="about">
+            <div class="social-area">
+                <a href="https://x.com/jsinclairvo" target="_blank" rel="noopener noreferrer" class="social-icon-link" title="Twitter / X">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                </a>
+            </div>
+
+            <div class="tagline">Voice Actor. Storyteller. Character Builder.</div>
+        </div>
+
+        <section id="about" class="page-section">
             <h2>About</h2>
-            <p>I am a Non-Union, African American voice actor with a deep, lifelong passion for the craft. My fascination with acting started when I was just 7 years old, and nothing brings me more joy than getting behind the microphone and bringing unique characters to life.</p>
+            <p>I am a Non-Union, African American voice actor with a deep, lifelong passion for the craft. My fascination with voice acting began at 11 years old when playing Telltale’s <em>The Walking Dead</em> for the first time completely opened my eyes to the medium, sparking a massive admiration for the legendary Dave Fennoy.</p>
+            <p>Years later, around the age of 23, my official journey began when a beautiful twist of fate brought me into contact with Fennoy's cousin, who graciously connected us for a personal conversation. Taking that unforgettable moment as a definitive sign from the universe, I committed myself to rigorous professional training and took my acting career to the next level. I haven't looked back since.</p>
             <p>Operating from a custom, broadcast-ready home studio setup, I provide professional, pristine audio files with a rapid turnaround time for animation, video games, and commercial projects worldwide.</p>
+            <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
-        <section id="work">
+        <section id="work" class="page-section">
             <h2>Notable Work</h2>
             <div class="list-block">
                 <div class="item-row">
@@ -212,9 +329,10 @@
                     </span> — <span class="item-sub">Mammal Squad (Ep. 4)</span>
                 </div>
             </div>
+            <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
-        <section id="training">
+        <section id="training" class="page-section">
             <h2>Education & Training</h2>
             <div class="list-block">
                 <div class="item-row">
@@ -233,48 +351,89 @@
                     <span class="item-main">Advance ADR Workshop</span> — <span class="item-sub">Jose Sandoval & Anthony Bowling</span>
                 </div>
             </div>
+            <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
-        <section id="demos">
+        <section id="demos" class="page-section">
             <h2>Demos & Samples</h2>
             <ul class="demo-list">
+                
                 <li class="demo-item">
-                    <a href="https://drive.google.com/file/d/1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="demo-link">
-                        Character Sample Reel ↗
-                    </a>
-                    <div class="demo-desc">Showcasing emotional range, character archetypes, and vocal versatility.</div>
+                    <div class="demo-row">
+                        <div>
+                            <a href="https://drive.google.com/file/d/1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="demo-link">
+                                Character Sample Reel ↗
+                            </a>
+                            <div class="demo-desc">Showcasing emotional range, character archetypes, and vocal versatility.</div>
+                        </div>
+                        <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">
+                            Download WAV
+                        </a>
+                    </div>
                 </li>
+                
                 <li class="demo-item">
-                    <a href="https://drive.google.com/file/d/1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="demo-link">
-                        Home Studio Sample ↗
-                    </a>
-                    <div class="demo-desc">A demonstration of raw audio quality, room acoustics, and technical specs.</div>
+                    <div class="demo-row">
+                        <div>
+                            <a href="https://drive.google.com/file/d/1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="demo-link">
+                                Home Studio Sample ↗
+                            </a>
+                            <div class="demo-desc">A demonstration of raw audio quality, room acoustics, and technical specs.</div>
+                        </div>
+                        <a href="https://drive.google.com/uc?export=download&id=1vhG9PpNcI6U_pgN5UsyhHVD_zxFnSjPT" target="_blank" class="menu-btn inline-dl-btn">
+                            Download WAV
+                        </a>
+                    </div>
                 </li>
+
             </ul>
+            <p style="font-size: 0.85rem; color: #9d8bb5; text-align: center; margin-top: 1rem; font-style: italic;">
+                Note for mobile users: Long-press "Download WAV" and select "Download Linked File" to save directly to your device.
+            </p>
+            <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
-        <section id="studio">
+        <section id="studio" class="page-section">
             <h2>Home Studio & Gear</h2>
             <p><strong>Microphones:</strong> Sennheiser MK8, Neumann TLM 103</p>
             <p><strong>Interface:</strong> Audient iD14 MKII</p>
             <p><strong>DAW:</strong> Reaper</p>
+            <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="page-section">
             <h2>Contact</h2>
             <div class="contact-block">
                 <div class="contact-title">Direct Inquiries & Bookings</div>
                 <a href="mailto:jsinclairvo@gmail.com" class="contact-email">jsinclairvo@gmail.com</a>
             </div>
+            <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
-
-        <footer>
-            <div class="social-links">
-                <a href="#">Back to Top ↑</a>
-            </div>
-        </footer>
 
     </div>
 
+    <script>
+        function showPage(sectionId) {
+            document.getElementById('landing-view').style.display = 'none';
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function showHome() {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('landing-view').style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
