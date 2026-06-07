@@ -211,16 +211,10 @@
             margin-bottom: 0.2rem;
         }
 
-        .demo-desc {
-            font-size: 0.95rem;
-            color: #9d8bb5;
-            margin-bottom: 1.2rem;
-        }
-
-        /* Container for the Google Drive Iframe Player */
+        /* Container for SoundCloud Player */
         .player-container {
             width: 100%;
-            height: 62px;
+            height: 166px;
             border-radius: 4px;
             overflow: hidden;
             background: #141414;
@@ -253,12 +247,6 @@
             margin-top: 1.5rem;
         }
 
-        .contact-card p {
-            font-size: 1rem;
-            color: #d1c7e0;
-            margin-bottom: 1rem;
-        }
-
         .contact-cta-btn {
             display: block;
             width: 100%;
@@ -282,7 +270,6 @@
             color: #ca9bf7;
             border-color: #ca9bf7;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(202, 155, 247, 0.25);
         }
 
         .back-btn {
@@ -292,9 +279,7 @@
             text-decoration: none;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: color 0.2s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .back-btn:hover {
@@ -305,7 +290,6 @@
 <body>
 
     <div class="container">
-
         <div id="landing-view">
             <h1 class="main-title">Jeremiah Sinclair</h1>
             <div class="subtitle">Voice Actor</div>
@@ -320,54 +304,29 @@
             </div>
 
             <div class="social-area">
-                <a href="https://x.com/jsinclairvo" target="_blank" rel="noopener noreferrer" class="social-icon-link" title="Twitter / X">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-                </a>
+                <a href="https://x.com/jsinclairvo" target="_blank" class="social-icon-link"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
             </div>
-
             <div class="tagline">Together, we can <strong>create</strong> magic.</div>
         </div>
 
         <section id="about" class="page-section">
             <h2>About</h2>
-            <p>I am a Non-Union, African American voice actor with a deep, lifelong passion for the craft. My fascination with voice acting began at 11 years old, when playing Telltale’s <em>The Walking Dead</em> for the first time opened my eyes to the medium, sparking a deep admiration for the legendary Dave Fennoy.</p>
-            <p>Years later, around the age of 23, my official journey began when a beautiful twist of fate brought me into contact with Fennoy's cousin, who graciously connected us for a personal conversation. Taking that unforgettable moment as a definitive sign from the universe, I committed myself to rigorous professional training and took my acting career to the next level. I haven't looked back since.</p>
+            <p>I am a Non-Union, African American voice actor with a deep, lifelong passion for the craft. My fascination with voice acting began at 11 years old.</p>
             <p>Operating from a custom, broadcast-ready home studio, I deliver professional, pristine audio files with rapid turnaround for animation, video games, and commercial projects worldwide.</p>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
         <section id="work" class="page-section">
             <h2>Notable Work</h2>
-            <div class="list-block">
-                <div class="item-row">
-                    <span class="item-main">
-                        <a href="https://youtu.be/N2hsJ7kXeNE?t=422" target="_blank" rel="noopener noreferrer" class="credit-link">
-                            Karate Instructor ↗
-                        </a>
-                    </span> — <span class="item-sub">Mammal Squad (Ep. 4)</span>
-                </div>
-            </div>
+            <div class="list-block"><div class="item-row"><span class="item-main"><a href="https://youtu.be/N2hsJ7kXeNE?t=422" target="_blank" class="credit-link">Karate Instructor ↗</a></span> — <span class="item-sub">Mammal Squad (Ep. 4)</span></div></div>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
         <section id="training" class="page-section">
             <h2>Education & Training</h2>
             <div class="list-block">
-                <div class="item-row">
-                    <span class="item-main">1 on 1 Coaching</span> — <span class="item-sub">June Yoon (StudioNPC)</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-main">Online Gaming & Animation</span> — <span class="item-sub">Michael Orenstein (RealVoicesLA)</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-main">Online Character Workout</span> — <span class="item-sub">Matthew David Rudd (RealVoicesLA)</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-main">Anime ADR Workshop</span> — <span class="item-sub">Shawn Gann & Jose Sandoval (StudioNPC)</span>
-                </div>
-                <div class="item-row">
-                    <span class="item-main">Advance ADR Workshop</span> — <span class="item-sub">Jose Sandoval & Anthony Bowling</span>
-                </div>
+                <div class="item-row"><span class="item-main">1 on 1 Coaching</span> — <span class="item-sub">June Yoon (StudioNPC)</span></div>
+                <div class="item-row"><span class="item-main">Online Gaming & Animation</span> — <span class="item-sub">Michael Orenstein (RealVoicesLA)</span></div>
             </div>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
@@ -375,33 +334,16 @@
         <section id="demos" class="page-section">
             <h2>Demos & Samples</h2>
             <ul class="demo-list">
-                
                 <li class="demo-item">
                     <div class="demo-title">Character Sample Reel</div>
-                    <div class="demo-desc">Showcasing emotional range, character archetypes, and vocal versatility.</div>
-                    
-                    <div class="player-container">
-                        <iframe src="https://drive.google.com/file/d/1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1/preview" allow="autoplay"></iframe>
-                    </div>
-                    
-                    <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">
-                        Download WAV
-                    </a>
+                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332130378&color=%23ca9bf7&auto_play=false&show_user=true" frameborder="0"></iframe></div>
+                    <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">Download WAV</a>
                 </li>
-                
                 <li class="demo-item">
                     <div class="demo-title">Home Studio Sample</div>
-                    <div class="demo-desc">A demonstration of raw audio quality, room acoustics, and technical specs.</div>
-                    
-                    <div class="player-container">
-                        <iframe src="https://drive.google.com/file/d/1O9u9177TNnzzLFb82wQip8i0_RzDm6c_/preview" allow="autoplay"></iframe>
-                    </div>
-                    
-                    <a href="https://drive.google.com/uc?export=download&id=1O9u9177TNnzzLFb82wQip8i0_RzDm6c_" target="_blank" class="menu-btn inline-dl-btn">
-                        Download WAV
-                    </a>
+                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332129817&color=%23ca9bf7&auto_play=false&show_user=true" frameborder="0"></iframe></div>
+                    <a href="https://drive.google.com/uc?export=download&id=1O9u9177TNnzzLFb82wQip8i0_RzDm6c_" target="_blank" class="menu-btn inline-dl-btn">Download WAV</a>
                 </li>
-
             </ul>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
@@ -416,48 +358,23 @@
 
         <section id="contact" class="page-section">
             <h2>Contact</h2>
-            
             <div class="contact-card">
-                <p>Have a project, audition, or booking inquiry? Let's connect directly.</p>
-                <p style="font-size: 1.1rem; color: #ca9bf7; font-weight: 500; margin-bottom: 1.5rem;">
-                    jsinclairvo@gmail.com
-                </p>
-                <a href="mailto:jsinclairvo@gmail.com?subject=Voice%20Acting%20Inquiry" class="contact-cta-btn">
-                    Open Email Client
-                </a>
+                <p style="font-size: 1.1rem; color: #ca9bf7; font-weight: 500; margin-bottom: 1.5rem;">jsinclairvo@gmail.com</p>
+                <a href="mailto:jsinclairvo@gmail.com" class="contact-cta-btn">Open Email Client</a>
             </div>
-
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
-
     </div>
 
     <script>
         function showPage(sectionId) {
             document.getElementById('landing-view').style.display = 'none';
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            const activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
         function showHome() {
-            const containers = document.querySelectorAll('.player-container iframe');
-            containers.forEach(iframe => {
-                const currentSrc = iframe.src;
-                iframe.src = '';
-                iframe.src = currentSrc;
-            });
-
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.getElementById('landing-view').style.display = 'flex';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
