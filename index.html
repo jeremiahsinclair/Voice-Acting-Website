@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official voice acting portfolio of Jeremiah Sinclair. Non-Union, African American voice actor for animation, video games, and commercial projects.">
     <title>Jeremiah Sinclair | Voice Actor</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -62,7 +63,9 @@
                 <button class="menu-btn" onclick="showPage('contact')">Contact</button>
             </div>
             <div class="social-area">
-                <a href="https://x.com/jsinclairvo" target="_blank" class="social-icon-link"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                <a href="https://x.com/jsinclairvo" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Visit Jeremiah Sinclair on X (Twitter)">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                </a>
             </div>
             <div class="tagline">Together, we can <strong>create</strong> magic.</div>
         </div>
@@ -77,7 +80,11 @@
 
         <section id="work" class="page-section">
             <h2>Notable Work</h2>
-            <div class="list-block"><div class="item-row"><span class="item-main"><a href="https://youtu.be/N2hsJ7kXeNE?t=422" target="_blank" class="credit-link">Karate Instructor ↗</a></span> — <span class="item-sub">Mammal Squad (Ep. 4)</span></div></div>
+            <div class="list-block">
+                <div class="item-row">
+                    <span class="item-main"><a href="https://youtu.be/N2hsJ7kXeNE?t=422" target="_blank" rel="noopener noreferrer" class="credit-link">Karate Instructor ↗</a></span> — <span class="item-sub">Mammal Squad (Ep. 4)</span>
+                </div>
+            </div>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
 
@@ -98,13 +105,13 @@
             <ul class="demo-list">
                 <li class="demo-item">
                     <div class="demo-title">Character Sample Reel</div>
-                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332130378&color=%23ca9bf7&hide_related=true&show_comments=false&show_user=false" frameborder="0"></iframe></div>
-                    <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">Download WAV</a>
+                    <div class="player-container"><iframe title="Character Sample Reel Soundcloud Player" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332130378&color=%23ca9bf7&hide_related=true&show_comments=false&show_user=false" frameborder="0"></iframe></div>
+                    <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" rel="noopener noreferrer" class="menu-btn inline-dl-btn">Download WAV</a>
                 </li>
                 <li class="demo-item">
                     <div class="demo-title">Home Studio Sample</div>
-                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332129817&color=%23ca9bf7&hide_related=true&show_comments=false&show_user=false" frameborder="0"></iframe></div>
-                    <a href="https://drive.google.com/uc?export=download&id=1O9u9177TNnzzLFb82wQip8i0_RzDm6c_" target="_blank" class="menu-btn inline-dl-btn">Download WAV</a>
+                    <div class="player-container"><iframe title="Home Studio Sample Soundcloud Player" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332129817&color=%23ca9bf7&hide_related=true&show_comments=false&show_user=false" frameborder="0"></iframe></div>
+                    <a href="https://drive.google.com/uc?export=download&id=1O9u9177TNnzzLFb82wQip8i0_RzDm6c_" target="_blank" rel="noopener noreferrer" class="menu-btn inline-dl-btn">Download WAV</a>
                 </li>
             </ul>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
@@ -148,13 +155,29 @@
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: "POST",
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-            if (response.ok) {
-                form.reset();
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    form.reset();
+                    msg.style.color = '#ca9bf7';
+                    msg.textContent = 'Message sent!';
+                    msg.style.opacity = '1';
+                    setTimeout(() => { msg.style.opacity = '0'; }, 3000);
+                } else {
+                    msg.style.color = '#ff6b6b';
+                    msg.textContent = 'Oops! There was a problem. Please try again.';
+                    msg.style.opacity = '1';
+                    setTimeout(() => { msg.style.opacity = '0'; }, 3000);
+                }
+            } catch (error) {
+                msg.style.color = '#ff6b6b';
+                msg.textContent = 'Oops! Network error. Please try again later.';
                 msg.style.opacity = '1';
                 setTimeout(() => { msg.style.opacity = '0'; }, 3000);
             }
