@@ -13,7 +13,7 @@
         .subtitle { font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: #ca9bf7; margin-bottom: 2.5rem; font-weight: 500; }
         .button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; margin-bottom: 2.5rem; }
         @media (max-width: 360px) { .button-grid { grid-template-columns: 1fr; } }
-        .menu-btn { background: transparent; border: 1px solid rgba(202, 155, 247, 0.3); color: #ffffff; padding: 1rem 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; text-align: center; text-decoration: none; }
+        .menu-btn { background: transparent; border: 1px solid rgba(202, 155, 247, 0.3); color: #ffffff; padding: 1rem 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; text-align: center; text-decoration: none; display: block; width: 100%; }
         .menu-btn:hover { border-color: #ca9bf7; background-color: rgba(202, 155, 247, 0.05); color: #ca9bf7; transform: translateY(-2px); }
         .social-area { margin-bottom: 2.5rem; display: flex; justify-content: center; align-items: center; }
         .social-icon-link { display: inline-flex; align-items: center; justify-content: center; color: #9d8bb5; transition: color 0.2s ease, transform 0.2s ease; text-decoration: none; }
@@ -32,10 +32,10 @@
         .item-sub { color: #9d8bb5; }
         .demo-list { list-style: none; }
         .demo-item { margin-bottom: 2rem; background: rgba(202, 155, 247, 0.02); border: 1px solid rgba(202, 155, 247, 0.08); padding: 1.5rem; border-radius: 6px; }
-        .demo-title { color: #ffffff; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.2rem; }
+        .demo-title { color: #ffffff; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem; }
         .player-container { width: 100%; height: 166px; border-radius: 4px; overflow: hidden; background: #141414; border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 1rem; }
         .player-container iframe { width: 100%; height: 100%; border: none; display: block; }
-        .inline-dl-btn { display: block; width: 100%; padding: 0.5rem 0; font-size: 0.75rem; text-align: center; }
+        .inline-dl-btn { display: block; width: 100%; padding: 0.8rem 0; font-size: 0.8rem; text-align: center; margin-top: 0.5rem; }
         .contact-card { background: rgba(202, 155, 247, 0.03); border: 1px solid rgba(202, 155, 247, 0.12); border-radius: 6px; padding: 2rem; text-align: center; margin-top: 1.5rem; }
         .contact-cta-btn { display: block; width: 100%; background: #ca9bf7; color: #06040a; padding: 1.1rem 0; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; text-decoration: none; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(202, 155, 247, 0.15); border: 1px solid #ca9bf7; }
         .contact-cta-btn:hover { background: transparent; color: #ca9bf7; border-color: #ca9bf7; transform: translateY(-2px); }
@@ -81,6 +81,9 @@
             <div class="list-block">
                 <div class="item-row"><span class="item-main">1 on 1 Coaching</span> — <span class="item-sub">June Yoon (StudioNPC)</span></div>
                 <div class="item-row"><span class="item-main">Online Gaming & Animation</span> — <span class="item-sub">Michael Orenstein (RealVoicesLA)</span></div>
+                <div class="item-row"><span class="item-main">Online Character Workout</span> — <span class="item-sub">Matthew David Rudd (RealVoicesLA)</span></div>
+                <div class="item-row"><span class="item-main">Anime ADR Workshop</span> — <span class="item-sub">Shawn Gann & Jose Sandoval (StudioNPC)</span></div>
+                <div class="item-row"><span class="item-main">Advance ADR Workshop</span> — <span class="item-sub">Jose Sandoval & Anthony Bowling</span></div>
             </div>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
@@ -125,12 +128,10 @@
             document.getElementById('landing-view').style.display = 'none';
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         function showHome() {
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.getElementById('landing-view').style.display = 'flex';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
