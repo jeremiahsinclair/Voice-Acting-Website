@@ -5,295 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeremiah Sinclair | Voice Actor</title>
     <style>
-        /* Minimalist Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #120921 0%, #06040a 100%);
-            background-attachment: fixed;
-            color: #e2daf0;
-            line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 3rem 1.5rem;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* --- LANDING VIEW --- */
-        #landing-view {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        h1.main-title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.2rem;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #ca9bf7;
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-        }
-
-        .button-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            width: 100%;
-            margin-bottom: 2.5rem;
-        }
-
-        @media (max-width: 360px) {
-            .button-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .menu-btn {
-            background: transparent;
-            border: 1px solid rgba(202, 155, 247, 0.3);
-            color: #ffffff;
-            padding: 1rem 0;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .menu-btn:hover {
-            border-color: #ca9bf7;
-            background-color: rgba(202, 155, 247, 0.05);
-            color: #ca9bf7;
-            transform: translateY(-2px);
-        }
-
-        .social-area {
-            margin-bottom: 2.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .social-icon-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #9d8bb5;
-            transition: color 0.2s ease, transform 0.2s ease;
-            text-decoration: none;
-        }
-
-        .social-icon-link:hover {
-            color: #ca9bf7;
-            transform: scale(1.1);
-        }
-
-        .social-icon-link svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
-
-        .tagline {
-            font-size: 0.95rem;
-            color: #9d8bb5;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- PAGE CONTENT VIEW --- */
-        .page-section {
-            display: none;
-            opacity: 0;
-            text-align: left;
-            width: 100%;
-            transition: opacity 0.3s ease-in-out;
-            padding: 1rem 0;
-        }
-
-        .page-section.active {
-            display: block;
-            opacity: 1;
-        }
-
-        h2 {
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #ca9bf7;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            border-bottom: 1px solid #2d1f42;
-            padding-bottom: 0.5rem;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-            color: #d1c7e0;
-            font-size: 1.05rem;
-        }
-
-        .list-block {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            color: #d1c7e0;
-        }
-
-        .item-row {
-            font-size: 1.05rem;
-        }
-
-        .item-main {
-            color: #ffffff;
-            font-weight: 500;
-        }
-
-        .credit-link {
-            color: #ffffff;
-            text-decoration: none;
-            border-bottom: 1px dashed #4a3765;
-            transition: all 0.2s ease;
-        }
-
-        .credit-link:hover {
-            color: #ca9bf7;
-            border-bottom-color: #ca9bf7;
-        }
-
-        .item-sub {
-            color: #9d8bb5;
-        }
-
-        .demo-list {
-            list-style: none;
-        }
-
-        .demo-item {
-            margin-bottom: 2rem;
-            background: rgba(202, 155, 247, 0.02);
-            border: 1px solid rgba(202, 155, 247, 0.08);
-            padding: 1.5rem;
-            border-radius: 6px;
-        }
-
-        .demo-title {
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 0.2rem;
-        }
-
-        /* Container for SoundCloud Player */
-        .player-container {
-            width: 100%;
-            height: 166px;
-            border-radius: 4px;
-            overflow: hidden;
-            background: #141414;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 1rem;
-        }
-
-        .player-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        .inline-dl-btn {
-            display: block;
-            width: 100%;
-            padding: 0.5rem 0;
-            font-size: 0.75rem;
-            text-align: center;
-        }
-
-        /* --- STYLIZED CONTACT AREA --- */
-        .contact-card {
-            background: rgba(202, 155, 247, 0.03);
-            border: 1px solid rgba(202, 155, 247, 0.12);
-            border-radius: 6px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .contact-cta-btn {
-            display: block;
-            width: 100%;
-            background: #ca9bf7;
-            color: #06040a;
-            padding: 1.1rem 0;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(202, 155, 247, 0.15);
-            border: 1px solid #ca9bf7;
-        }
-
-        .contact-cta-btn:hover {
-            background: transparent;
-            color: #ca9bf7;
-            border-color: #ca9bf7;
-            transform: translateY(-2px);
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 3rem;
-            color: #9d8bb5;
-            text-decoration: none;
-            font-size: 0.95rem;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .back-btn:hover {
-            color: #ca9bf7;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background: linear-gradient(135deg, #120921 0%, #06040a 100%); background-attachment: fixed; color: #e2daf0; line-height: 1.7; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 3rem 1.5rem; }
+        .container { width: 100%; max-width: 500px; margin: 0 auto; text-align: center; }
+        #landing-view { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+        h1.main-title { font-size: 2.4rem; font-weight: 700; color: #ffffff; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.2rem; }
+        .subtitle { font-size: 1.1rem; letter-spacing: 4px; text-transform: uppercase; color: #ca9bf7; margin-bottom: 2.5rem; font-weight: 500; }
+        .button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; margin-bottom: 2.5rem; }
+        @media (max-width: 360px) { .button-grid { grid-template-columns: 1fr; } }
+        .menu-btn { background: transparent; border: 1px solid rgba(202, 155, 247, 0.3); color: #ffffff; padding: 1rem 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: all 0.2s ease; text-align: center; text-decoration: none; }
+        .menu-btn:hover { border-color: #ca9bf7; background-color: rgba(202, 155, 247, 0.05); color: #ca9bf7; transform: translateY(-2px); }
+        .social-area { margin-bottom: 2.5rem; display: flex; justify-content: center; align-items: center; }
+        .social-icon-link { display: inline-flex; align-items: center; justify-content: center; color: #9d8bb5; transition: color 0.2s ease, transform 0.2s ease; text-decoration: none; }
+        .social-icon-link:hover { color: #ca9bf7; transform: scale(1.1); }
+        .social-icon-link svg { width: 22px; height: 22px; fill: currentColor; }
+        .tagline { font-size: 0.95rem; color: #9d8bb5; letter-spacing: 0.5px; }
+        .page-section { display: none; opacity: 0; text-align: left; width: 100%; transition: opacity 0.3s ease-in-out; padding: 1rem 0; }
+        .page-section.active { display: block; opacity: 1; }
+        h2 { font-size: 1.3rem; text-transform: uppercase; letter-spacing: 2px; color: #ca9bf7; margin-bottom: 1.5rem; font-weight: 600; border-bottom: 1px solid #2d1f42; padding-bottom: 0.5rem; }
+        p { margin-bottom: 1.2rem; color: #d1c7e0; font-size: 1.05rem; }
+        .list-block { display: flex; flex-direction: column; gap: 1rem; color: #d1c7e0; }
+        .item-row { font-size: 1.05rem; }
+        .item-main { color: #ffffff; font-weight: 500; }
+        .credit-link { color: #ffffff; text-decoration: none; border-bottom: 1px dashed #4a3765; transition: all 0.2s ease; }
+        .credit-link:hover { color: #ca9bf7; border-bottom-color: #ca9bf7; }
+        .item-sub { color: #9d8bb5; }
+        .demo-list { list-style: none; }
+        .demo-item { margin-bottom: 2rem; background: rgba(202, 155, 247, 0.02); border: 1px solid rgba(202, 155, 247, 0.08); padding: 1.5rem; border-radius: 6px; }
+        .demo-title { color: #ffffff; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.2rem; }
+        .player-container { width: 100%; height: 166px; border-radius: 4px; overflow: hidden; background: #141414; border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 1rem; }
+        .player-container iframe { width: 100%; height: 100%; border: none; display: block; }
+        .inline-dl-btn { display: block; width: 100%; padding: 0.5rem 0; font-size: 0.75rem; text-align: center; }
+        .contact-card { background: rgba(202, 155, 247, 0.03); border: 1px solid rgba(202, 155, 247, 0.12); border-radius: 6px; padding: 2rem; text-align: center; margin-top: 1.5rem; }
+        .contact-cta-btn { display: block; width: 100%; background: #ca9bf7; color: #06040a; padding: 1.1rem 0; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; text-decoration: none; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(202, 155, 247, 0.15); border: 1px solid #ca9bf7; }
+        .contact-cta-btn:hover { background: transparent; color: #ca9bf7; border-color: #ca9bf7; transform: translateY(-2px); }
+        .back-btn { display: inline-block; margin-top: 3rem; color: #9d8bb5; text-decoration: none; font-size: 0.95rem; cursor: pointer; text-transform: uppercase; }
+        .back-btn:hover { color: #ca9bf7; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div id="landing-view">
             <h1 class="main-title">Jeremiah Sinclair</h1>
             <div class="subtitle">Voice Actor</div>
-            
             <div class="button-grid">
                 <button class="menu-btn" onclick="showPage('about')">About</button>
                 <button class="menu-btn" onclick="showPage('work')">Work</button>
@@ -302,7 +56,6 @@
                 <button class="menu-btn" onclick="showPage('studio')">Studio</button>
                 <button class="menu-btn" onclick="showPage('contact')">Contact</button>
             </div>
-
             <div class="social-area">
                 <a href="https://x.com/jsinclairvo" target="_blank" class="social-icon-link"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
             </div>
@@ -311,7 +64,8 @@
 
         <section id="about" class="page-section">
             <h2>About</h2>
-            <p>I am a Non-Union, African American voice actor with a deep, lifelong passion for the craft. My fascination with voice acting began at 11 years old.</p>
+            <p>I am a Non-Union, African American voice actor with a deep, lifelong passion for the craft. My fascination with voice acting began at 11 years old, when playing Telltale’s The Walking Dead for the first time opened my eyes to the medium, sparking a deep admiration for the legendary Dave Fennoy.</p>
+            <p>Years later, around the age of 23, my official journey began when a beautiful twist of fate brought me into contact with Fennoy's cousin, who graciously connected us for a personal conversation. Taking that unforgettable moment as a definitive sign from the universe, I committed myself to rigorous professional training and took my acting career to the next level. I haven't looked back since.</p>
             <p>Operating from a custom, broadcast-ready home studio, I deliver professional, pristine audio files with rapid turnaround for animation, video games, and commercial projects worldwide.</p>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
@@ -336,12 +90,12 @@
             <ul class="demo-list">
                 <li class="demo-item">
                     <div class="demo-title">Character Sample Reel</div>
-                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332130378&color=%23ca9bf7&auto_play=false&show_user=true" frameborder="0"></iframe></div>
+                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332130378&color=%23ca9bf7&hide_related=true&show_comments=false&show_user=false" frameborder="0"></iframe></div>
                     <a href="https://drive.google.com/uc?export=download&id=1Ocqah4N6oyq1XH73wkrTyaIizDsSLsn1" target="_blank" class="menu-btn inline-dl-btn">Download WAV</a>
                 </li>
                 <li class="demo-item">
                     <div class="demo-title">Home Studio Sample</div>
-                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332129817&color=%23ca9bf7&auto_play=false&show_user=true" frameborder="0"></iframe></div>
+                    <div class="player-container"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2332129817&color=%23ca9bf7&hide_related=true&show_comments=false&show_user=false" frameborder="0"></iframe></div>
                     <a href="https://drive.google.com/uc?export=download&id=1O9u9177TNnzzLFb82wQip8i0_RzDm6c_" target="_blank" class="menu-btn inline-dl-btn">Download WAV</a>
                 </li>
             </ul>
