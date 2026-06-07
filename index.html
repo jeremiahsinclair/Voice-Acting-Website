@@ -36,9 +36,14 @@
         .player-container { width: 100%; height: 166px; border-radius: 4px; overflow: hidden; background: #141414; border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 1rem; }
         .player-container iframe { width: 100%; height: 100%; border: none; display: block; }
         .inline-dl-btn { display: block; width: 100%; padding: 0.8rem 0; font-size: 0.8rem; text-align: center; margin-top: 0.5rem; }
-        .contact-card { background: rgba(202, 155, 247, 0.03); border: 1px solid rgba(202, 155, 247, 0.12); border-radius: 6px; padding: 2rem; text-align: center; margin-top: 1.5rem; }
-        .contact-cta-btn { display: block; width: 100%; background: #ca9bf7; color: #06040a; padding: 1.1rem 0; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; text-decoration: none; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(202, 155, 247, 0.15); border: 1px solid #ca9bf7; }
-        .contact-cta-btn:hover { background: transparent; color: #ca9bf7; border-color: #ca9bf7; transform: translateY(-2px); }
+        
+        /* Form Styles */
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+        .form-input { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(202, 155, 247, 0.2); color: #ffffff; padding: 0.8rem; border-radius: 4px; width: 100%; }
+        .form-btn { background: #ca9bf7; color: #06040a; border: none; padding: 1rem; cursor: pointer; font-weight: bold; text-transform: uppercase; border-radius: 4px; transition: all 0.2s ease; }
+        .form-btn:hover { background: transparent; color: #ca9bf7; border: 1px solid #ca9bf7; }
+        #response-msg { margin-top: 1rem; color: #ca9bf7; text-align: center; font-weight: 600; opacity: 0; transition: opacity 0.5s ease; }
+        
         .back-btn { display: inline-block; margin-top: 3rem; color: #9d8bb5; text-decoration: none; font-size: 0.95rem; cursor: pointer; text-transform: uppercase; }
         .back-btn:hover { color: #ca9bf7; }
     </style>
@@ -115,10 +120,13 @@
 
         <section id="contact" class="page-section">
             <h2>Contact</h2>
-            <div class="contact-card">
-                <p style="font-size: 1.1rem; color: #ca9bf7; font-weight: 500; margin-bottom: 1.5rem;">jsinclairvo@gmail.com</p>
-                <a href="mailto:jsinclairvo@gmail.com" class="contact-cta-btn">Open Email Client</a>
-            </div>
+            <form id="contact-form" action="https://formspree.io/f/mjgdyapk" method="POST" class="contact-form">
+                <input type="email" name="email" placeholder="Email" required class="form-input">
+                <input type="text" name="subject" placeholder="Subject" required class="form-input">
+                <textarea name="message" placeholder="Message" required class="form-input" rows="4"></textarea>
+                <button type="submit" class="form-btn">Send Message</button>
+            </form>
+            <div id="response-msg">Message sent!</div>
             <a class="back-btn" onclick="showHome()">← Back to Main</a>
         </section>
     </div>
@@ -133,6 +141,24 @@
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.getElementById('landing-view').style.display = 'flex';
         }
+
+        const form = document.getElementById("contact-form");
+        const msg = document.getElementById("response-msg");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                form.reset();
+                msg.style.opacity = '1';
+                setTimeout(() => { msg.style.opacity = '0'; }, 3000);
+            }
+        });
     </script>
 </body>
 </html>
